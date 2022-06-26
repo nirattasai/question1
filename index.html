@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="col1">
+    <input type="text" id="input">
+  </div><div id="col2">
+    <select id="method">
+      <option value="prime">isPrime</option>
+      <option value="fibo">isFibonacci</option>
+    </select>
+  </div><div id="col3">
+    <div id="result">result</div>
+  </div>
+</body>
+
+<script>
+  function isPrime(input){
+    document.getElementById("result").innerHTML = "true"
+    if (input > 1) {
+      for (let i = 2; i < number; i++) {
+        if (number % i == 0) {
+            document.getElementById("result").innerHTML = "false";
+            break;
+        }
+      }
+    }
+  }
+
+  function isPerfectSquare( x)
+  {
+      let s = parseInt(Math.sqrt(x));
+      return (s * s == x);
+  }
+
+  function isFibonacci(input){
+    
+    document.getElementById("result").innerHTML = isPerfectSquare(5 * input * input + 4) || isPerfectSquare(5 * input * input - 4);
+  }
+
+  method = document.getElementById("method");
+  console.log(method.value)
+  method.addEventListener("change", (event) => {
+    value = event.target.value;
+    input = document.getElementById("input");
+    if (value == "prime") {
+      isPrime(input);
+    }
+    else {
+      isFibonacci(input);
+    }
+  });
+  input = document.getElementById("input");
+  input.addEventListener("change", (event) => {
+    input = event.target.value;
+    method = document.getElementById("method");
+    if (method == "prime") {
+      isPrime(input);
+    }
+    else {
+      isFibonacci(input);
+    }
+  });
+</script>
+
+<style>
+
+  body {
+    width: 100%;
+    min-width: 600px;
+    margin: 0px;
+  }
+  #col1 {
+    width: 200px;
+    display: inline-block;
+  }
+
+  #col3 {
+    width: 300px;
+    display: inline-block;
+  }
+
+  #col2 {
+    width: calc(100% - 500px - 16px);
+    min-width: 100px;
+    display: inline-block;
+  }
+
+  @media only screen and (max-width: 600px){
+    body {
+      overflow-x: scroll;
+    }
+  }
+
+
+</style>
+</html>
